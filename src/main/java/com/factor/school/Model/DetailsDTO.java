@@ -17,7 +17,8 @@ public class DetailsDTO{
 
     private String matricNo;
     private String firstname;
-    private String surname;
+    private String otherNames;
+    private String lastname;
 
     @DateTimeFormat(pattern = "dd-MM-yyyy")
     private Date dob;

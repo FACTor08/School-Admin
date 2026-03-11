@@ -7,11 +7,9 @@ import org.springframework.stereotype.Repository;
 import java.util.Optional;
 
 @Repository
-public interface MainDB extends JpaRepository<Student_details, String> {
+public interface StudentsRepo extends JpaRepository<Student_details, String> {
 
     Optional<Student_details> findByMatricNoIgnoreCase(String matric);
-
-    Optional<Student_details> findBySurnameIgnoreCase(String surname);
 
     Boolean existsByMatricNoIgnoreCase(String matricNo);
 

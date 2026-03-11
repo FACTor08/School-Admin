@@ -1,9 +1,9 @@
 package com.factor.school.Service;
 
-import com.factor.school.Configuration.DataTransfer;
+import com.factor.school.Component.StudentsDataTransfer;
 import com.factor.school.Model.DetailsDTO;
 import com.factor.school.Model.Student_details;
-import com.factor.school.Repository.MainDB;
+import com.factor.school.Repository.StudentsRepo;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,10 +17,10 @@ import java.util.Optional;
 @Transactional
 public class Details_Logic {
     @Autowired
-    MainDB repo;
+    StudentsRepo repo;
 
     @Autowired
-    private DataTransfer dt;
+    private StudentsDataTransfer dt;
 
     public String enrollStudents(DetailsDTO details, MultipartFile photo) throws IOException {
         byte[] image = photo.getBytes();
@@ -34,12 +34,6 @@ public class Details_Logic {
     public List<Student_details> getAllStudents(){
       return repo.findAll();
     }
-
-
-    public Optional<Student_details> findBySurname(String surname){
-      return repo.findBySurnameIgnoreCase(surname);
-    }
-
 
     public Optional<Student_details> findByMatricNo(String matric){
       return repo.findByMatricNoIgnoreCase(matric);

@@ -15,7 +15,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 
 @RestController
-@RequestMapping("/school")
+@RequestMapping("/Admin-Portal")
 
 public class Main {
     @Autowired
@@ -35,17 +35,8 @@ public class Main {
        return ResponseEntity.ok(students);
    }
 
-   @GetMapping("/search/{surname}")
-   public ResponseEntity<Student_details> findBySurname(@PathVariable String surname){
-       return logic.findBySurname(surname).stream()
-              .findFirst()
-              .map(ResponseEntity::ok)
-              .orElse(ResponseEntity.status(404).build());
-
-   }
-
-    @GetMapping("/search/students/{matric_no}")
-    public ResponseEntity<Student_details> findByMatricNo(@PathVariable String matric_no){
+    @GetMapping("/search/matric")
+    public ResponseEntity<Student_details> findByMatricNo(@RequestParam String matric_no){
         return logic.findByMatricNo(matric_no).stream()
                 .findFirst()
                 .map(ResponseEntity::ok)
@@ -53,8 +44,8 @@ public class Main {
 
     }
 
-   @DeleteMapping("/erase/{matric}")
-   public ResponseEntity<String> deleteStudentData(@PathVariable String matric){
+   @DeleteMapping("/erase/{matric}") //
+   public ResponseEntity<String> deleteStudentData(@RequestParam String matric){
         boolean erased = logic.eraseStudentData(matric);
         if (erased){
             return ResponseEntity.ok("Data of Student " + matric + " has been Successfully deleted");

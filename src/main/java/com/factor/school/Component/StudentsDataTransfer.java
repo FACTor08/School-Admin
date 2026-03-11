@@ -1,4 +1,4 @@
-package com.factor.school.Configuration;
+package com.factor.school.Component;
 
 import com.factor.school.Model.DetailsDTO;
 import com.factor.school.Model.Student_details;
@@ -9,7 +9,7 @@ import java.time.LocalDate;
 import java.util.Random;
 
 @Component
-public class DataTransfer {
+public class StudentsDataTransfer {
 
     private static final Random random = new Random();
 
@@ -22,7 +22,8 @@ public class DataTransfer {
 
         student.setMatricNo(matricGenerator());
         student.setFirstname(detailsDTO.getFirstname());
-        student.setSurname(detailsDTO.getSurname());
+        student.setOtherNames(detailsDTO.getOtherNames());
+        student.setLastname(detailsDTO.getLastname());
         student.setDob(detailsDTO.getDob());
         student.setEmail(detailsDTO.getEmail());
         student.setPhone(detailsDTO.getPhone());
