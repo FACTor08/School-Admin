@@ -35,7 +35,7 @@ public class Main {
        return ResponseEntity.ok(students);
    }
 
-    @GetMapping("/search/matric")
+    @GetMapping("/search")
     public ResponseEntity<Student_details> findByMatricNo(@RequestParam String matric_no){
         return logic.findByMatricNo(matric_no).stream()
                 .findFirst()
@@ -44,7 +44,7 @@ public class Main {
 
     }
 
-   @DeleteMapping("/erase/{matric}") //
+   @DeleteMapping("/erase/{matric}")
    public ResponseEntity<String> deleteStudentData(@RequestParam String matric){
         boolean erased = logic.eraseStudentData(matric);
         if (erased){

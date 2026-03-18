@@ -27,7 +27,7 @@ public class Details_Logic {
         String imageType = photo.getContentType();
         Student_details student = dt.transfer(details, image, imageType);
         repo.save(student);
-    return "Student has successfully been enrolled with the Matric number " + details.getMatricNo();
+    return "Student" + details.getLastname() + details.getFirstname() + "has successfully been enrolled";
     }
 
 

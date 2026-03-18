@@ -13,13 +13,11 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Admin {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private String staffId;
+
     private String firstname;
     private String otherNames;
     private String lastname;
-    private String staffId;
-
     @Email(message = "Input a valid email address")
     private String email;
 
